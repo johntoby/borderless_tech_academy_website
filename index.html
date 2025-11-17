@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Borderless Tech Academy - Learn. Build. Earn - From Anywhere</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -12,9 +14,9 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #1a1a2e;
             overflow-x: hidden;
         }
 
@@ -26,18 +28,20 @@
             display: block;
         }
 
-        /* Navigation */
+        /* Enhanced Navigation */
         nav {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.1);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -46,160 +50,279 @@
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             cursor: pointer;
+            transition: transform 0.3s ease;
         }
 
-        .logo span {
-            color: #ffd700;
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .logo-text span {
+            color: #667eea;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
+            align-items: center;
         }
 
         .nav-links a {
-            color: white;
+            color: #1a1a2e;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
-            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .nav-links a:hover {
-            color: #ffd700;
+            color: #667eea;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .cta-btn {
-            background: #ffd700;
-            color: #333;
-            padding: 0.7rem 1.5rem;
-            border-radius: 5px;
-            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 0.95rem;
         }
 
         .cta-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255,215,0,0.3);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
         }
 
-        /* Hero Section */
+        /* Enhanced Hero Section */
         .hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 6rem 2rem;
+            padding: 8rem 2rem 6rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease-out;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1.2s;
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            animation: fadeInUp 1.2s ease-out;
         }
 
         .hero-cta {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             background: #ffd700;
-            color: #333;
-            padding: 1rem 3rem;
+            color: #1a1a2e;
+            padding: 1.2rem 3rem;
             font-size: 1.2rem;
-            font-weight: bold;
+            font-weight: 600;
             border-radius: 50px;
             text-decoration: none;
             cursor: pointer;
-            transition: all 0.3s;
-            animation: fadeInUp 1.4s;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1.4s ease-out;
+            border: none;
         }
 
         .hero-cta:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(255,215,0,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.4);
         }
 
-        /* Stats Section */
+        /* Enhanced Stats Section */
         .stats {
-            background: #f8f9fa;
-            padding: 3rem 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            background: #f8fafc;
+            padding: 5rem 2rem;
+            position: relative;
+        }
+
+        .stats-container {
             max-width: 1200px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
         .stat-card {
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 2rem;
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
         }
 
         .stat-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+        }
+
+        .stat-card .icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
         }
 
         .stat-card h3 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: #667eea;
             margin-bottom: 0.5rem;
+            font-weight: 700;
         }
 
         .stat-card p {
-            color: #666;
+            color: #64748b;
             font-size: 1.1rem;
+            font-weight: 500;
         }
 
-        /* Programs Section */
+        /* Enhanced Programs Section */
         .programs {
-            padding: 5rem 2rem;
-            max-width: 1200px;
+            padding: 6rem 2rem;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .program-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
         }
 
         .program-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
             cursor: pointer;
+            border: 1px solid rgba(102, 126, 234, 0.1);
         }
 
         .program-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(102,126,234,0.3);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.2);
+        }
+
+        .program-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+        }
+
+        .program-image .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .program-image .icon {
+            font-size: 4rem;
+            color: white;
         }
 
         .program-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
             padding: 2rem;
             text-align: center;
         }
@@ -207,10 +330,23 @@
         .program-header h3 {
             font-size: 1.8rem;
             margin-bottom: 0.5rem;
+            color: #1a1a2e;
+            font-weight: 600;
+        }
+
+        .program-header .duration {
+            color: #667eea;
+            font-weight: 500;
         }
 
         .program-body {
-            padding: 2rem;
+            padding: 0 2rem 2rem;
+        }
+
+        .program-body h4 {
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+            font-weight: 600;
         }
 
         .program-body ul {
@@ -219,23 +355,25 @@
         }
 
         .program-body ul li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
+            padding: 0.7rem 0;
+            padding-left: 2rem;
             position: relative;
+            color: #64748b;
         }
 
         .program-body ul li:before {
             content: "✓";
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: #10b981;
             font-weight: bold;
+            font-size: 1.2rem;
         }
 
-        /* Pricing Section */
+        /* Enhanced Pricing Section */
         .pricing {
-            background: #f8f9fa;
-            padding: 5rem 2rem;
+            background: #f8fafc;
+            padding: 6rem 2rem;
         }
 
         .pricing-container {
@@ -245,39 +383,63 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 4rem;
         }
 
         .price-card {
             background: white;
-            border-radius: 15px;
-            padding: 3rem 2rem;
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 2px solid transparent;
         }
 
         .price-card:hover {
-            transform: scale(1.05);
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
         }
 
         .price-card.featured {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             transform: scale(1.05);
+            border: 2px solid #ffd700;
+        }
+
+        .price-card.featured::before {
+            content: "Most Popular";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffd700;
+            color: #1a1a2e;
+            padding: 0.5rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
         }
 
         .price-card h3 {
             font-size: 2rem;
             margin-bottom: 1rem;
+            font-weight: 600;
         }
 
         .price {
-            font-size: 3rem;
-            font-weight: bold;
-            margin: 1rem 0;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin: 1.5rem 0;
+            color: #667eea;
+        }
+
+        .price-card.featured .price {
+            color: #ffd700;
         }
 
         .price-card ul {
@@ -287,8 +449,8 @@
         }
 
         .price-card ul li {
-            padding: 0.7rem 0;
-            padding-left: 1.5rem;
+            padding: 0.8rem 0;
+            padding-left: 2rem;
             position: relative;
         }
 
@@ -297,127 +459,177 @@
             position: absolute;
             left: 0;
             font-weight: bold;
+            color: #10b981;
+        }
+
+        .price-card.featured ul li:before {
+            color: #ffd700;
         }
 
         .enroll-btn {
-            background: #ffd700;
-            color: #333;
-            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.2rem 2.5rem;
             border: none;
             border-radius: 50px;
             font-size: 1.1rem;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 1rem;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            width: 100%;
         }
 
         .enroll-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255,215,0,0.3);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
         }
 
-        /* About Section */
+        .price-card.featured .enroll-btn {
+            background: #ffd700;
+            color: #1a1a2e;
+        }
+
+        /* Enhanced About Section */
         .about {
-            padding: 5rem 2rem;
-            max-width: 1200px;
+            padding: 6rem 2rem;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
+            margin-bottom: 4rem;
         }
 
         .about-text h2 {
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            color: #667eea;
+            color: #1a1a2e;
+            font-weight: 700;
         }
 
         .about-text p {
             font-size: 1.1rem;
             line-height: 1.8;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            color: #64748b;
+        }
+
+        .about-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
         }
 
         .manifesto {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 3rem;
-            border-radius: 15px;
+            padding: 4rem;
+            border-radius: 20px;
             font-style: italic;
             line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
         }
 
-        /* Testimonials */
+        /* Enhanced Testimonials */
         .testimonials {
-            background: #f8f9fa;
-            padding: 5rem 2rem;
+            background: #f8fafc;
+            padding: 6rem 2rem;
         }
 
         .testimonial-grid {
             max-width: 1200px;
-            margin: 3rem auto 0;
+            margin: 4rem auto 0;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
         }
 
         .testimonial-card {
             background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.12);
         }
 
         .testimonial-card p {
             font-style: italic;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
             line-height: 1.8;
+            color: #64748b;
+            font-size: 1.1rem;
         }
 
         .testimonial-author {
-            font-weight: bold;
+            font-weight: 600;
             color: #667eea;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
-        /* Contact Form */
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Enhanced Contact Form */
         .contact {
-            padding: 5rem 2rem;
-            max-width: 800px;
+            padding: 6rem 2rem;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .contact-form {
             background: white;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 4rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 1px solid rgba(102, 126, 234, 0.1);
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             font-weight: 600;
-            color: #333;
+            color: #1a1a2e;
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 1rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
+            padding: 1.2rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
             font-size: 1rem;
-            transition: border-color 0.3s;
+            transition: all 0.3s ease;
+            font-family: inherit;
         }
 
         .form-group input:focus,
@@ -425,31 +637,32 @@
         .form-group textarea:focus {
             outline: none;
             border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
         .submit-btn {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 1rem 3rem;
+            padding: 1.2rem 3rem;
             border: none;
             border-radius: 50px;
             font-size: 1.1rem;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
             width: 100%;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
 
         .submit-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(102,126,234,0.3);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
         }
 
-        /* Footer */
+        /* Enhanced Footer */
         footer {
             background: #1a1a2e;
             color: white;
-            padding: 3rem 2rem 1rem;
+            padding: 4rem 2rem 2rem;
         }
 
         .footer-content {
@@ -457,21 +670,22 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
 
         .footer-section h3 {
             color: #ffd700;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
         }
 
         .footer-section a {
-            color: white;
+            color: #cbd5e1;
             text-decoration: none;
             display: block;
-            margin: 0.5rem 0;
-            transition: color 0.3s;
+            margin: 0.8rem 0;
+            transition: color 0.3s ease;
         }
 
         .footer-section a:hover {
@@ -481,7 +695,8 @@
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid #333;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
         }
 
         /* Animations */
@@ -496,42 +711,120 @@
             }
         }
 
-        /* Responsive */
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #1a1a2e;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
 
+            .mobile-menu-btn {
+                display: block;
+            }
+
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
             .hero p {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
 
             .about-content {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .program-grid,
             .pricing-grid {
                 grid-template-columns: 1fr;
             }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
         }
 
+        @media (max-width: 480px) {
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 4rem 1rem 3rem;
+            }
+
+            .programs,
+            .about,
+            .contact {
+                padding: 3rem 1rem;
+            }
+        }
+
+        /* Utility Classes */
         .highlight {
             color: #ffd700;
         }
 
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
         .guarantee-badge {
-            background: #ffd700;
-            color: #333;
-            padding: 1rem 2rem;
-            border-radius: 10px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #1a1a2e;
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
             text-align: center;
-            font-weight: bold;
-            margin: 2rem 0;
+            font-weight: 600;
+            margin: 3rem 0;
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card .icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
         }
     </style>
 </head>
@@ -540,15 +833,18 @@
     <nav>
         <div class="nav-container">
             <div class="logo" onclick="showPage('home')">
-                <span>BTA</span> Borderless Tech
+                <img src="LOGO.png" alt="BTA Logo">
             </div>
             <ul class="nav-links">
                 <li><a onclick="showPage('home')">Home</a></li>
                 <li><a onclick="showPage('programs')">Programs</a></li>
                 <li><a onclick="showPage('about')">About</a></li>
                 <li><a onclick="showPage('pricing')">Pricing</a></li>
-                <li><a class="cta-btn" onclick="showPage('enroll')">Enroll Now</a></li>
+                <li><button class="cta-btn" onclick="showPage('enroll')">Enroll Now</button></li>
             </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
@@ -556,129 +852,369 @@
     <div id="home" class="page active">
         <!-- Hero Section -->
         <section class="hero">
-            <h1>Learn. Build. Earn. <br><span class="highlight">From Anywhere.</span></h1>
-            <p>Your laptop is your visa. Make yourself globally employable in 6 months.</p>
-            <a class="hero-cta" onclick="showPage('enroll')">Start Your Journey →</a>
+            <div class="hero-content">
+                <h1>Learn. Build. Earn. <br><span class="highlight">From Anywhere.</span></h1>
+                <p>Your laptop is your visa. Make yourself globally employable in 6 months with Africa's premier live tech academy.</p>
+                <button class="hero-cta" onclick="showPage('enroll')">
+                    Start Your Journey <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
         </section>
 
         <!-- Stats Section -->
         <section class="stats">
-            <div class="stat-card">
-                <h3>6 Months</h3>
-                <p>Complete Training + Internship</p>
-            </div>
-            <div class="stat-card">
-                <h3>100%</h3>
-                <p>Live Online Classes</p>
-            </div>
-            <div class="stat-card">
-                <h3>10,000</h3>
-                <p>Target Graduates by 2030</p>
-            </div>
-            <div class="stat-card">
-                <h3>Global</h3>
-                <p>Career Opportunities</p>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="icon"><i class="fas fa-clock"></i></div>
+                    <h3>6</h3>
+                    <p>Months Complete Program</p>
+                </div>
+                <div class="stat-card">
+                    <div class="icon"><i class="fas fa-video"></i></div>
+                    <h3>100%</h3>
+                    <p>Live Online Classes</p>
+                </div>
+                <div class="stat-card">
+                    <div class="icon"><i class="fas fa-users"></i></div>
+                    <h3>10K</h3>
+                    <p>Target Graduates by 2030</p>
+                </div>
+                <div class="stat-card">
+                    <div class="icon"><i class="fas fa-globe"></i></div>
+                    <h3>Global</h3>
+                    <p>Career Opportunities</p>
+                </div>
             </div>
         </section>
 
         <!-- Why Choose BTA -->
         <section class="programs">
-            <h2 class="section-title">Why Choose Borderless Tech Academy?</h2>
+            <h2 class="section-title">Why Choose <span class="gradient-text">Borderless Tech Academy?</span></h2>
+            <p class="section-subtitle">We don't just teach technology — we teach freedom. Freedom from limits, borders, and geographical constraints.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3>Live Training</h3>
+                    <p>100% live, instructor-led classes - not pre-recorded videos. Get real-time feedback and personalized mentorship from industry experts.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>Real Internship</h3>
+                    <p>Guaranteed 3-month internship with StockSmartAI - work on real projects and build your professional portfolio.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon"><i class="fas fa-globe-americas"></i></div>
+                    <h3>Global Curriculum</h3>
+                    <p>Learn in-demand skills: DevOps, Cloud Engineering, Cybersecurity, and Software Engineering with international standards.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon"><i class="fas fa-dollar-sign"></i></div>
+                    <h3>Affordable Pricing</h3>
+                    <p>Flexible payment options in Naira and USD. Pay in full or monthly installments that fit your budget.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Career Support</h3>
+                    <p>CV optimization, portfolio building, interview preparation, and job placement assistance included in every program.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon"><i class="fas fa-users"></i></div>
+                    <h3>Community</h3>
+                    <p>Join a thriving community of African tech professionals building global careers and earning in dollars.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs Preview -->
+        <section class="programs" style="background: #f8fafc; margin: 0 -2rem; padding: 6rem 2rem;">
+            <h2 class="section-title">Our Programs</h2>
+            <p class="section-subtitle">Choose your path to a global tech career</p>
+            
             <div class="program-grid">
                 <div class="program-card">
+                    <div class="program-image">
+                        <img src="devops-pics.png" alt="DevOps Engineering">
+                        <div class="overlay">
+                            <div class="icon"><i class="fas fa-cogs"></i></div>
+                        </div>
+                    </div>
                     <div class="program-header">
-                        <h3>🎓 Live Training</h3>
+                        <h3>Cloud & DevOps Engineering</h3>
+                        <p class="duration">6 Months | Live Online</p>
                     </div>
                     <div class="program-body">
-                        <p>100% live, instructor-led classes - not pre-recorded videos. Get real-time feedback and personalized mentorship.</p>
+                        <p>Master CI/CD pipelines, Docker, Kubernetes, AWS, and infrastructure automation. Become a highly sought-after DevOps engineer.</p>
+                        <button class="enroll-btn" onclick="showPage('programs')">Learn More</button>
                     </div>
                 </div>
+
                 <div class="program-card">
+                    <div class="program-image">
+                        <img src="master-software-eng.png" alt="Software Engineering">
+                        <div class="overlay">
+                            <div class="icon"><i class="fas fa-code"></i></div>
+                        </div>
+                    </div>
                     <div class="program-header">
-                        <h3>💼 Real Internship</h3>
+                        <h3>Software Engineering</h3>
+                        <p class="duration">6 Months | Live Online</p>
                     </div>
                     <div class="program-body">
-                        <p>Guaranteed 3-month internship with StockSmartAI - work on real projects and build your portfolio.</p>
+                        <p>Full-stack development with React, Node.js, MongoDB, and modern JavaScript. Build scalable web applications.</p>
+                        <button class="enroll-btn" onclick="showPage('programs')">Learn More</button>
                     </div>
                 </div>
+
                 <div class="program-card">
+                    <div class="program-image">
+                        <img src="cyber-image.png" alt="Cybersecurity">
+                        <div class="overlay">
+                            <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                        </div>
+                    </div>
                     <div class="program-header">
-                        <h3>🌍 Global Curriculum</h3>
+                        <h3>Cybersecurity</h3>
+                        <p class="duration">6 Months | Live Online</p>
                     </div>
                     <div class="program-body">
-                        <p>Learn in-demand skills: DevOps, Cloud Engineering, Cybersecurity, and Software Engineering with global standards.</p>
-                    </div>
-                </div>
-                <div class="program-card">
-                    <div class="program-header">
-                        <h3>💰 Affordable Pricing</h3>
-                    </div>
-                    <div class="program-body">
-                        <p>Flexible payment options in Naira and USD. Pay in full or monthly installments.</p>
-                    </div>
-                </div>
-                <div class="program-card">
-                    <div class="program-header">
-                        <h3>🎯 Career Support</h3>
-                    </div>
-                    <div class="program-body">
-                        <p>CV optimization, portfolio building, and job placement assistance included.</p>
-                    </div>
-                </div>
-                <div class="program-card">
-                    <div class="program-header">
-                        <h3>🤝 Community</h3>
-                    </div>
-                    <div class="program-body">
-                        <p>Join a thriving community of African tech professionals building global careers.</p>
+                        <p>Ethical hacking, cloud security, SOC analysis, and penetration testing. Protect organizations from cyber threats.</p>
+                        <button class="enroll-btn" onclick="showPage('programs')">Learn More</button>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- CTA Section -->
-        <section class="hero">
-            <h2>Ready to Transform Your Career?</h2>
-            <p>Join hundreds of Africans earning in dollars from anywhere in the world.</p>
-            <div class="guarantee-badge">
-                🎯 Launch Date: January 2026 | Limited Seats Available
+        <section class="hero" style="padding: 4rem 2rem;">
+            <div class="hero-content">
+                <h2>Ready to Transform Your Career?</h2>
+                <p>Join hundreds of Africans earning in dollars from anywhere in the world.</p>
+                <div class="guarantee-badge">
+                    <i class="fas fa-calendar-alt"></i> Launch Date: January 2026 | Limited Seats Available
+                </div>
+                <button class="hero-cta" onclick="showPage('enroll')">
+                    Secure Your Spot Now <i class="fas fa-arrow-right"></i>
+                </button>
             </div>
-            <a class="hero-cta" onclick="showPage('enroll')">Secure Your Spot Now →</a>
         </section>
     </div>
 
     <!-- PROGRAMS PAGE -->
     <div id="programs" class="page">
         <section class="hero">
-            <h1>Our Programs</h1>
-            <p>Choose your path to a global tech career</p>
+            <div class="hero-content">
+                <h1>Our Programs</h1>
+                <p>Choose your path to a global tech career with industry-leading curriculum</p>
+            </div>
         </section>
 
         <section class="programs">
             <div class="program-grid">
                 <div class="program-card">
+                    <div class="program-image">
+                        <img src="devops-pics.png" alt="DevOps Engineering">
+                        <div class="overlay">
+                            <div class="icon"><i class="fas fa-cogs"></i></div>
+                        </div>
+                    </div>
                     <div class="program-header">
                         <h3>Cloud & DevOps Engineering</h3>
-                        <p>6 Months | Live Online</p>
+                        <p class="duration">6 Months | Live Online</p>
                     </div>
                     <div class="program-body">
                         <h4>What You'll Learn:</h4>
                         <ul>
-                            <li>CI/CD Pipelines</li>
-                            <li>Docker & Kubernetes</li>
+                            <li>CI/CD Pipelines with Jenkins & GitLab</li>
+                            <li>Docker & Kubernetes Orchestration</li>
                             <li>Terraform Infrastructure as Code</li>
-                            <li>AWS Cloud Services</li>
-                            <li>Monitoring & Automation</li>
+                            <li>AWS Cloud Services & Architecture</li>
+                            <li>Monitoring & Automation Tools</li>
                             <li>Production-Ready Deployments</li>
                         </ul>
                         <h4>Career Outcomes:</h4>
                         <p>DevOps Engineer, Cloud Engineer, Site Reliability Engineer, Infrastructure Engineer</p>
                         <button class="enroll-btn" onclick="showPage('enroll')">Enroll Now</button>
                     </div>
+                </div>
 
-                    <div class="price-card featured">
-                        <h3>💎 Monthly Plan</h3>
-                        <div class="price">₦150,000</div>
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="master-software-eng.png" alt="Software Engineering">
+                        <div class="overlay">
+                            <div class="icon"><i class="fas fa-code"></i></div>
+                        </div>
+                    </div>
+                    <div class="program-header">
+                        <h3>Software Engineering</h3>
+                        <p class="duration">6 Months | Live Online</p>
+                    </div>
+                    <div class="program-body">
+                        <h4>What You'll Learn:</h4>
+                        <ul>
+                            <li>Full-Stack Web Development</li>
+                            <li>React & Modern Frontend</li>
+                            <li>Node.js Backend Development</li>
+                            <li>MongoDB Database Design</li>
+                            <li>RESTful API Development</li>
+                            <li>Modern JavaScript & TypeScript</li>
+                        </ul>
+                        <h4>Career Outcomes:</h4>
+                        <p>Full-Stack Developer, Frontend Developer, Backend Developer, Software Engineer</p>
+                        <button class="enroll-btn" onclick="showPage('enroll')">Enroll Now</button>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="cyber-image.png" alt="Cybersecurity">
+                        <div class="overlay">
+                            <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="program-header">
+                        <h3>Cybersecurity</h3>
+                        <p class="duration">6 Months | Live Online</p>
+                    </div>
+                    <div class="program-body">
+                        <h4>What You'll Learn:</h4>
+                        <ul>
+                            <li>Ethical Hacking Fundamentals</li>
+                            <li>Cloud Security Best Practices</li>
+                            <li>SOC Analysis & Incident Response</li>
+                            <li>Penetration Testing Techniques</li>
+                            <li>Security Automation & Tools</li>
+                            <li>Compliance & Risk Management</li>
+                        </ul>
+                        <h4>Career Outcomes:</h4>
+                        <p>Security Analyst, Penetration Tester, SOC Analyst, Security Engineer</p>
+                        <button class="enroll-btn" onclick="showPage('enroll')">Enroll Now</button>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="master-cloud.png" alt="Data Science">
+                        <div class="overlay">
+                            <div class="icon"><i class="fas fa-chart-line"></i></div>
+                        </div>
+                    </div>
+                    <div class="program-header">
+                        <h3>Data Science & AI</h3>
+                        <p class="duration">6 Months | Live Online</p>
+                    </div>
+                    <div class="program-body">
+                        <h4>What You'll Learn:</h4>
+                        <ul>
+                            <li>Python for Data Analysis</li>
+                            <li>Machine Learning Algorithms</li>
+                            <li>Deep Learning & Neural Networks</li>
+                            <li>AI Integration & APIs</li>
+                            <li>Data Visualization & Storytelling</li>
+                            <li>Real-World Data Projects</li>
+                        </ul>
+                        <h4>Career Outcomes:</h4>
+                        <p>Data Scientist, ML Engineer, Data Analyst, AI Specialist</p>
+                        <button class="enroll-btn" onclick="showPage('enroll')">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guarantee-badge" style="margin-top: 4rem;">
+                <i class="fas fa-check-circle"></i> Every Program Includes: 3 Months Live Training + 3 Months Internship at StockSmartAI + Career Coaching + Portfolio Development
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>About Borderless Tech Academy</h1>
+                <p>Building Africa's Future, One Developer at a Time</p>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Vision</h2>
+                    <p>To make Africans globally employable by providing practical, borderless tech education that bridges classroom learning and real-world experience.</p>
+                    
+                    <h2 style="margin-top: 2rem;">Our Mission</h2>
+                    <p>Empower 10,000 Africans by 2030 with in-demand global tech skills and mentorship from industry experts, enabling them to earn in dollars from anywhere in the world.</p>
+
+                    <h2 style="margin-top: 2rem;">WHY BTA</h2>
+                    <p>There are several tech training institutes all across Africa, but what makes us standout is the real life tech experience we provide to all our students. We don't just teach theory, we provide practical opportunities for every learner to utilize the skills they learnt in class on a real life project. Thus, you either continue on the project and turn it to a real life start up or you are equipped with practical scenarios to describe in an interview session.</p>
+                </div>
+
+                <div class="about-image">
+                    <img src="girlll.jpeg" alt="African tech professional">
+                </div>
+            </div>
+
+            <div class="manifesto">
+                <h3 style="text-align: center; margin-bottom: 2rem; font-size: 2rem;">Our Manifesto</h3>
+                <p>We are dreamers. Builders. Believers in a new Africa — one where talent, not geography, defines destiny.</p>
+                
+                <p>At Borderless Tech Academy (BTA), we believe hope is not a privilege; it's a skill. A skill that can be learned, built, and deployed — just like DevOps, Cloud, or Code.</p>
+                
+                <p>We see a generation of Africans tired of waiting for opportunities to come. So we teach them to create their own.</p>
+                
+                <p>With a laptop, an internet connection, and the right mindset, anyone can rise — from Lagos to London, Nairobi to New York, Accra to Amsterdam.</p>
+                
+                <p><strong>We don't just teach technology — we teach freedom.</strong></p>
+                
+                <p>Freedom from limits. Freedom from borders. Freedom to dream, build, and belong to a global digital tribe.</p>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <h2 class="section-title">What Our Community Says</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"BTA gave me the skills and confidence to land my first remote job. I'm now working with a US-based startup from Lagos, earning in dollars!"</p>
+                    <div class="testimonial-author">
+                        <img src="Skills-i.jpeg" alt="Student">
+                        <span>- Future Alumni</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The live classes and real internship made all the difference. I learned by doing, not just watching videos. The mentorship was incredible."</p>
+                    <div class="testimonial-author">
+                        <img src="bta-image-5.jpeg" alt="Student">
+                        <span>- Future Alumni</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"As someone from the diaspora, BTA helped me reconnect with African tech talent while upgrading my skills for the global market."</p>
+                    <div class="testimonial-author">
+                        <img src="girlll.jpeg" alt="Student">
+                        <span>- Future Alumni</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PRICING PAGE -->
+    <div id="pricing" class="page">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Invest in Your Future</h1>
+                <p>Flexible payment options designed for Africans everywhere</p>
+            </div>
+        </section>
+
+        <section class="pricing">
+            <div class="pricing-container">
+                <h2 class="section-title">Choose Your Payment Plan</h2>
+                
+                <div class="pricing-grid">
+                    <div class="price-card">
+                        <h3>Monthly Plan</h3>
+                        <div class="price">₦150K</div>
                         <p>Per Month (3 Months)</p>
                         <ul>
                             <li>Same Full Program Access</li>
@@ -688,7 +1224,24 @@
                             <li>Portfolio Development</li>
                             <li>Job Placement Support</li>
                             <li>Community Access</li>
-                            <li><strong>Most Popular!</strong></li>
+                            <li><strong>Most Flexible!</strong></li>
+                        </ul>
+                        <button class="enroll-btn" onclick="showPage('enroll')">Enroll Now</button>
+                    </div>
+
+                    <div class="price-card featured">
+                        <h3>Nigerian Students</h3>
+                        <div class="price">₦400K</div>
+                        <p>One-Off Payment</p>
+                        <ul>
+                            <li>6 Months Complete Training</li>
+                            <li>3 Months Live Classes</li>
+                            <li>3 Months Internship</li>
+                            <li>Career Coaching</li>
+                            <li>Portfolio Development</li>
+                            <li>Job Placement Support</li>
+                            <li>Community Access</li>
+                            <li><strong>Best Value!</strong></li>
                         </ul>
                         <button class="enroll-btn" onclick="showPage('enroll')">Enroll Now</button>
                     </div>
@@ -711,49 +1264,7 @@
                 </div>
 
                 <div class="guarantee-badge" style="margin-top: 3rem;">
-                    💯 100% Satisfaction Guarantee: If you're not satisfied with the training quality within the first 2 weeks, we'll provide a full refund. No questions asked.
-                </div>
-
-                <div style="margin-top: 3rem; text-align: center;">
-                    <h3 style="margin-bottom: 1rem;">What's Included in Every Plan:</h3>
-                    <div class="program-grid" style="max-width: 900px; margin: 0 auto;">
-                        <div class="program-card">
-                            <div class="program-body">
-                                <h4>📚 Live Classes</h4>
-                                <p>3 months of instructor-led training with real-time feedback</p>
-                            </div>
-                        </div>
-                        <div class="program-card">
-                            <div class="program-body">
-                                <h4>💼 Real Internship</h4>
-                                <p>3 months working on StockSmartAI projects</p>
-                            </div>
-                        </div>
-                        <div class="program-card">
-                            <div class="program-body">
-                                <h4>🎯 Career Support</h4>
-                                <p>CV optimization, interview prep, job placement</p>
-                            </div>
-                        </div>
-                        <div class="program-card">
-                            <div class="program-body">
-                                <h4>🏆 Certificates</h4>
-                                <p>Industry-recognized completion certificates</p>
-                            </div>
-                        </div>
-                        <div class="program-card">
-                            <div class="program-body">
-                                <h4>🤝 Community</h4>
-                                <p>Lifetime access to BTA alumni network</p>
-                            </div>
-                        </div>
-                        <div class="program-card">
-                            <div class="program-body">
-                                <h4>📊 Portfolio</h4>
-                                <p>Professional portfolio showcasing real projects</p>
-                            </div>
-                        </div>
-                    </div>
+                    <i class="fas fa-shield-alt"></i> 100% Satisfaction Guarantee: If you're not satisfied with the training quality within the first 2 weeks, we'll provide a full refund. No questions asked.
                 </div>
             </div>
         </section>
@@ -762,134 +1273,118 @@
     <!-- ENROLL PAGE -->
     <div id="enroll" class="page">
         <section class="hero">
-            <h1>Start Your Journey Today</h1>
-            <p>Join the January 2026 founding cohort - Limited seats available!</p>
+            <div class="hero-content">
+                <h1>Start Your Journey Today</h1>
+                <p>Join the January 2026 founding cohort - Limited seats available!</p>
+            </div>
         </section>
 
         <section class="contact">
             <div class="contact-form">
                 <h2 style="text-align: center; margin-bottom: 2rem;">Enrollment Application</h2>
+                
+                <!-- Formspree Form -->
                 <form id="enrollmentForm" action="https://formspree.io/f/movygqnj" method="POST">
-                    <div class="form-group">
-                        <label>Full Name *</label>
-                        <input type="text" name="name" required placeholder="Enter your full name">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Full Name *</label>
+                            <input type="text" name="name" required placeholder="Enter your full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email Address *</label>
+                            <input type="email" name="email" required placeholder="your.email@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Phone Number *</label>
+                            <input type="tel" name="phone" required placeholder="+234 XXX XXX XXXX">
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-map-marker-alt"></i> Location *</label>
+                            <select name="location" required>
+                                <option value="">Select your location</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="Ghana">Ghana</option>
+                                <option value="Kenya">Kenya</option>
+                                <option value="South Africa">South Africa</option>
+                                <option value="Diaspora - USA">Diaspora - USA</option>
+                                <option value="Diaspora - UK">Diaspora - UK</option>
+                                <option value="Diaspora - Canada">Diaspora - Canada</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-laptop-code"></i> Select Program *</label>
+                            <select name="program" required>
+                                <option value="">Choose your program</option>
+                                <option value="Cloud & DevOps Engineering">Cloud & DevOps Engineering</option>
+                                <option value="Software Engineering">Software Engineering</option>
+                                <option value="Cybersecurity">Cybersecurity</option>
+                                <option value="Data Science & AI">Data Science & AI</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-credit-card"></i> Payment Plan *</label>
+                            <select name="payment" required>
+                                <option value="">Select payment option</option>
+                                <option value="Full Payment - ₦400,000 (Nigeria)">Full Payment - ₦400,000 (Nigeria)</option>
+                                <option value="Monthly - ₦150,000 × 3 (Nigeria)">Monthly - ₦150,000 × 3 (Nigeria)</option>
+                                <option value="Full Payment - $300 (Diaspora)">Full Payment - $300 (Diaspora)</option>
+                                <option value="Monthly - $120 × 3 (Diaspora)">Monthly - $120 × 3 (Diaspora)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-chart-line"></i> Current Experience Level *</label>
+                            <select name="experience" required>
+                                <option value="">Select your level</option>
+                                <option value="Beginner - No tech experience">Beginner - No tech experience</option>
+                                <option value="Some Experience - Basic programming">Some Experience - Basic programming</option>
+                                <option value="Intermediate - 1-2 years experience">Intermediate - 1-2 years experience</option>
+                                <option value="Advanced - Looking to specialize">Advanced - Looking to specialize</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-comment"></i> Why do you want to join BTA?</label>
+                            <textarea name="motivation" rows="4" placeholder="Tell us about your goals and why you're interested in this program..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="display: flex; align-items: center; gap: 10px;">
+                                <input type="checkbox" name="agreement" required style="width: auto;">
+                                I agree to the terms and conditions and understand the program commitment
+                            </label>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Submit Application
+                        </button>
+                    </form>
+
+                <div style="margin-top: 3rem; padding: 2rem; background: #f8fafc; border-radius: 15px; text-align: center;">
+                    <h3 style="margin-bottom: 1.5rem; color: #1a1a2e;">What Happens Next?</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: center;">
+                        <div>
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">1️⃣</div>
+                            <p>Submit your application</p>
+                        </div>
+                        <div>
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">2️⃣</div>
+                            <p>Review within 24 hours</p>
+                        </div>
+                        <div>
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">3️⃣</div>
+                            <p>Complete payment</p>
+                        </div>
+                        <div>
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">4️⃣</div>
+                            <p>Start in January 2026!</p>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label>Email Address *</label>
-                        <input type="email" name="email" required placeholder="your.email@example.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Phone Number *</label>
-                        <input type="tel" name="phone" required placeholder="+234 XXX XXX XXXX">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Location *</label>
-                        <select name="location" required>
-                            <option value="">Select your location</option>
-                            <option value="nigeria">Nigeria</option>
-                            <option value="ghana">Ghana</option>
-                            <option value="kenya">Kenya</option>
-                            <option value="southafrica">South Africa</option>
-                            <option value="diaspora-us">Diaspora - USA</option>
-                            <option value="diaspora-uk">Diaspora - UK</option>
-                            <option value="diaspora-canada">Diaspora - Canada</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Select Program *</label>
-                        <select name="program" required>
-                            <option value="">Choose your program</option>
-                            <option value="devops">Cloud & DevOps Engineering</option>
-                            <option value="data">Data Science & AI</option>
-                            <option value="cyber">Cybersecurity</option>
-                            <option value="software">Software Engineering</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Payment Plan *</label>
-                        <select name="payment_plan" required>
-                            <option value="">Select payment option</option>
-                            <option value="full-ngn">Full Payment - ₦400,000 (Nigeria)</option>
-                            <option value="monthly-ngn">Monthly - ₦150,000 × 3 (Nigeria)</option>
-                            <option value="full-usd">Full Payment - $300 (Diaspora)</option>
-                            <option value="monthly-usd">Monthly - $120 × 3 (Diaspora)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Current Experience Level *</label>
-                        <select name="experience_level" required>
-                            <option value="">Select your level</option>
-                            <option value="beginner">Beginner - No tech experience</option>
-                            <option value="some">Some Experience - Basic programming</option>
-                            <option value="intermediate">Intermediate - 1-2 years experience</option>
-                            <option value="advanced">Advanced - Looking to specialize</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Why do you want to join BTA?</label>
-                        <textarea name="message" rows="4" placeholder="Tell us about your goals and why you're interested in this program..."></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" name="agreement" required style="width: auto; display: inline; margin-right: 10px;">
-                            I agree to the terms and conditions and understand the program commitment
-                        </label>
-                    </div>
-
-                    <input type="submit" value="Submit Application →" class="submit-btn">
-                </form>
-
-                <div style="margin-top: 2rem; padding: 2rem; background: #f8f9fa; border-radius: 10px; text-align: center;">
-                    <h3 style="margin-bottom: 1rem;">What Happens Next?</h3>
-                    <p style="margin-bottom: 0.5rem;">1️⃣ Submit your application</p>
-                    <p style="margin-bottom: 0.5rem;">2️⃣ Our team will review and contact you within 24 hours</p>
-                    <p style="margin-bottom: 0.5rem;">3️⃣ Complete payment and receive your onboarding materials</p>
-                    <p>4️⃣ Start your journey in January 2026!</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section class="programs" style="background: #f8f9fa; padding: 3rem 2rem;">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div style="max-width: 800px; margin: 0 auto;">
-                <div style="background: white; padding: 2rem; margin-bottom: 1rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                    <h3 style="color: #667eea; margin-bottom: 0.5rem;">Do I need prior tech experience?</h3>
-                    <p>No! Our programs are designed for beginners through advanced learners. We'll meet you where you are and take you where you want to go.</p>
-                </div>
-
-                <div style="background: white; padding: 2rem; margin-bottom: 1rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                    <h3 style="color: #667eea; margin-bottom: 0.5rem;">Are the classes really live?</h3>
-                    <p>Yes! 100% live instructor-led training via Zoom/Google Meet. You'll interact with instructors and classmates in real-time, not watch pre-recorded videos.</p>
-                </div>
-
-                <div style="background: white; padding: 2rem; margin-bottom: 1rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                    <h3 style="color: #667eea; margin-bottom: 0.5rem;">Is the internship guaranteed?</h3>
-                    <p>Yes! Every student who completes the 3-month training gets a guaranteed internship placement at StockSmartAI for 3 months.</p>
-                </div>
-
-                <div style="background: white; padding: 2rem; margin-bottom: 1rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                    <h3 style="color: #667eea; margin-bottom: 0.5rem;">Can I work while taking the course?</h3>
-                    <p>Yes! We offer flexible evening and weekend class options for working professionals.</p>
-                </div>
-
-                <div style="background: white; padding: 2rem; margin-bottom: 1rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                    <h3 style="color: #667eea; margin-bottom: 0.5rem;">What if I'm not satisfied?</h3>
-                    <p>We offer a 100% money-back guarantee within the first 2 weeks if you're not satisfied with the program quality.</p>
-                </div>
-
-                <div style="background: white; padding: 2rem; margin-bottom: 1rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                    <h3 style="color: #667eea; margin-bottom: 0.5rem;">Will I get a certificate?</h3>
-                    <p>Yes! You'll receive an industry-recognized certificate upon completion, plus a portfolio of real projects from your internship.</p>
                 </div>
             </div>
         </section>
@@ -901,16 +1396,16 @@
             <div class="footer-section">
                 <h3>Borderless Tech Academy</h3>
                 <p>Making Africans globally employable through practical, borderless tech education.</p>
-                <p style="margin-top: 1rem;">📍 Remote-first | Nigeria HQ</p>
-                <p>📅 Launch: January 2026</p>
+                <p style="margin-top: 1rem;"><i class="fas fa-map-marker-alt"></i> Remote-first | Nigeria HQ</p>
+                <p><i class="fas fa-calendar-alt"></i> Launch: January 2026</p>
             </div>
 
             <div class="footer-section">
                 <h3>Programs</h3>
                 <a href="#" onclick="showPage('programs')">Cloud & DevOps Engineering</a>
-                <a href="#" onclick="showPage('programs')">Data Science & AI</a>
-                <a href="#" onclick="showPage('programs')">Cybersecurity</a>
                 <a href="#" onclick="showPage('programs')">Software Engineering</a>
+                <a href="#" onclick="showPage('programs')">Cybersecurity</a>
+                <a href="#" onclick="showPage('programs')">Data Science & AI</a>
             </div>
 
             <div class="footer-section">
@@ -923,17 +1418,17 @@
 
             <div class="footer-section">
                 <h3>Connect With Us</h3>
-                <a href="#">📧 info@borderlesstechacademy.com</a>
-                <a href="#">📱 WhatsApp Community</a>
-                <a href="#">💼 LinkedIn</a>
-                <a href="#">📸 Instagram</a>
-                <a href="#">🐦 Twitter</a>
-                <a href="#">📺 YouTube</a>
+                <a href="mailto:info@borderlesstechacademy.com"><i class="fas fa-envelope"></i> info@borderlesstechacademy.com</a>
+                <a href="https://wa.me/2348103734621" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Community</a>
+                <a href="https://www.linkedin.com/company/borderlesstechacademy" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://www.instagram.com/borderlesstechacademy" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://x.com/bta_tech_99" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="https://facebook.com/borderlesstechacademe" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Borderless Tech Academy. Founded by John Idowu. All rights reserved.</p>
+            <p>&copy; 2026 Borderless Tech Academy. Founded by African tech experts, for Africans. All rights reserved.</p>
             <p style="margin-top: 0.5rem; font-style: italic;">"Your laptop is your visa. Learn. Build. Earn - From Anywhere."</p>
         </div>
     </footer>
@@ -951,33 +1446,23 @@
             window.scrollTo(0, 0);
         }
 
-        // Form submission handler
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('enrollmentForm');
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    // Let Formspree handle the submission
-                    setTimeout(function() {
-                        alert('Thank you for your application! Our team will contact you within 24 hours via email. Check your inbox for next steps.\n\n🎉 Welcome to the Borderless Tech Academy family!');
-                    }, 100);
-                });
-            }
+        // Form submission handling
+        document.getElementById('enrollmentForm').addEventListener('submit', function(e) {
+            // Show loading state
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            submitBtn.disabled = true;
+            
+            // The form will be submitted to Formspree automatically
+            // Add a small delay to show the loading state
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 1000);
         });
 
-        // Smooth scroll for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Add animation on scroll
+        // Smooth animations on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -991,220 +1476,16 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.program-card, .stat-card, .price-card, .testimonial-card').forEach(el => {
+        // Observe elements for animation
+        document.querySelectorAll('.program-card, .stat-card, .price-card, .testimonial-card, .feature-card').forEach(el => {
             observer.observe(el);
+        });
+
+        // Mobile menu toggle (for future implementation)
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            // Mobile menu functionality can be added here
+            console.log('Mobile menu clicked');
         });
     </script>
 </body>
-</html>btn" onclick="showPage('enroll')">Enroll Now</button>
-                    </div>
-                </div>
-
-                <div class="program-card">
-                    <div class="program-header">
-                        <h3>Data Science & AI</h3>
-                        <p>6 Months | Live Online</p>
-                    </div>
-                    <div class="program-body">
-                        <h4>What You'll Learn:</h4>
-                        <ul>
-                            <li>Python for Data Analysis</li>
-                            <li>Machine Learning Algorithms</li>
-                            <li>Building Data Models</li>
-                            <li>AI Integration & APIs</li>
-                            <li>Data Visualization</li>
-                            <li>Real-World Data Projects</li>
-                        </ul>
-                        <h4>Career Outcomes:</h4>
-                        <p>Data Scientist, ML Engineer, Data Analyst, AI Specialist</p>
-                        <button class="enroll-btn" onclick="showPage('enroll')">Enroll Now</button>
-                    </div>
-                </div>
-
-                <div class="program-card">
-                    <div class="program-header">
-                        <h3>Cybersecurity</h3>
-                        <p>6 Months | Live Online</p>
-                    </div>
-                    <div class="program-body">
-                        <h4>What You'll Learn:</h4>
-                        <ul>
-                            <li>Ethical Hacking Fundamentals</li>
-                            <li>Cloud Security Best Practices</li>
-                            <li>SOC Analysis & Incident Response</li>
-                            <li>Penetration Testing</li>
-                            <li>Security Automation</li>
-                            <li>Compliance & Risk Management</li>
-                        </ul>
-                        <h4>Career Outcomes:</h4>
-                        <p>Security Analyst, Penetration Tester, SOC Analyst, Security Engineer</p>
-                        <button class="enroll-btn" onclick="showPage('enroll')">Enroll Now</button>
-                    </div>
-                </div>
-
-                <div class="program-card">
-                    <div class="program-header">
-                        <h3>Software Engineering</h3>
-                        <p>6 Months | Live Online</p>
-                    </div>
-                    <div class="program-body">
-                        <h4>What You'll Learn:</h4>
-                        <ul>
-                            <li>Full-Stack Web Development</li>
-                            <li>Node.js Backend Development</li>
-                            <li>React Frontend Development</li>
-                            <li>MongoDB Database Design</li>
-                            <li>RESTful API Development</li>
-                            <li>Modern JavaScript & TypeScript</li>
-                        </ul>
-                        <h4>Career Outcomes:</h4>
-                        <p>Full-Stack Developer, Backend Developer, Frontend Developer, Software Engineer</p>
-                        <button class="enroll-btn" onclick="showPage('enroll')">Enroll Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="guarantee-badge" style="margin-top: 3rem;">
-                ✅ Every Program Includes: 3 Months Live Training + 3 Months Internship at StockSmartAI + Career Coaching + Portfolio Development
-            </div>
-        </section>
-    </div>
-
-    <!-- ABOUT PAGE -->
-    <div id="about" class="page">
-        <section class="hero">
-            <h1>About Borderless Tech Academy</h1>
-            <p>Building Africa's Future, One Developer at a Time</p>
-        </section>
-
-        <section class="about">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Our Vision</h2>
-                    <p>To make Africans globally employable by providing practical, borderless tech education that bridges classroom learning and real-world experience.</p>
-                    
-                    <h2 style="margin-top: 2rem;">Our Mission</h2>
-                    <p>Empower 10,000 Africans by 2030 with in-demand global tech skills and mentorship from industry experts.</p>
-
-                    <h2 style="margin-top: 2rem;">Founded By</h2>
-                    <p>John Idowu - Tech entrepreneur and educator passionate about unlocking Africa's digital potential.</p>
-
-                    <h2 style="margin-top: 2rem;">Launch Date</h2>
-                    <p>January 2026 - Join our founding cohort!</p>
-                </div>
-
-                <div class="manifesto">
-                    <h3 style="text-align: center; margin-bottom: 1.5rem;">Our Manifesto</h3>
-                    <p>We are dreamers. Builders. Believers in a new Africa — one where talent, not geography, defines destiny.</p>
-                    
-                    <p>At Borderless Tech Academy (BTA), we believe hope is not a privilege; it's a skill. A skill that can be learned, built, and deployed — just like DevOps, Cloud, or Code.</p>
-                    
-                    <p>We see a generation of Africans tired of waiting for opportunities to come. So we teach them to create their own.</p>
-                    
-                    <p>With a laptop, an internet connection, and the right mindset, anyone can rise — from Lagos to London, Nairobi to New York, Accra to Amsterdam.</p>
-                    
-                    <p><strong>We don't just teach technology — we teach freedom.</strong></p>
-                    
-                    <p>Freedom from limits. Freedom from borders. Freedom to dream, build, and belong to a global digital tribe.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials -->
-        <section class="testimonials">
-            <h2 class="section-title">What Our Community Says</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <p>"BTA gave me the skills and confidence to land my first remote job. I'm now working with a US-based startup from Lagos!"</p>
-                    <p class="testimonial-author">- Future Alumni</p>
-                </div>
-                <div class="testimonial-card">
-                    <p>"The live classes and real internship made all the difference. I learned by doing, not just watching videos."</p>
-                    <p class="testimonial-author">- Future Alumni</p>
-                </div>
-                <div class="testimonial-card">
-                    <p>"As someone from the diaspora, BTA helped me reconnect with African tech talent while upgrading my skills."</p>
-                    <p class="testimonial-author">- Future Alumni</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5-Year Vision -->
-        <section class="programs">
-            <h2 class="section-title">Our 5-Year Growth Plan</h2>
-            <div class="program-grid">
-                <div class="program-card">
-                    <div class="program-header">
-                        <h3>2026</h3>
-                    </div>
-                    <div class="program-body">
-                        <h4>Launch & Brand Building</h4>
-                        <p>Train 1,000 students across 4 cohorts. Establish BTA as Africa's premier live tech academy.</p>
-                    </div>
-                </div>
-                <div class="program-card">
-                    <div class="program-header">
-                        <h3>2027</h3>
-                    </div>
-                    <div class="program-body">
-                        <h4>Scale Across Africa</h4>
-                        <p>Reach 5,000 students. Expand to French-speaking African countries.</p>
-                    </div>
-                </div>
-                <div class="program-card">
-                    <div class="program-header">
-                        <h3>2028</h3>
-                    </div>
-                    <div class="program-body">
-                        <h4>Program Expansion</h4>
-                        <p>Add advanced AI & Data Analytics programs. Train 7,000 students.</p>
-                    </div>
-                </div>
-                <div class="program-card">
-                    <div class="program-header">
-                        <h3>2029</h3>
-                    </div>
-                    <div class="program-body">
-                        <h4>BTA Learning App</h4>
-                        <p>Launch mobile learning platform. Reach 10,000 students annually.</p>
-                    </div>
-                </div>
-                <div class="program-card">
-                    <div class="program-header">
-                        <h3>2030</h3>
-                    </div>
-                    <div class="program-body">
-                        <h4>Industry Partnerships</h4>
-                        <p>Partner with universities and global tech firms. 10,000+ alumni worldwide.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- PRICING PAGE -->
-    <div id="pricing" class="page">
-        <section class="hero">
-            <h1>Invest in Your Future</h1>
-            <p>Flexible payment options designed for Africans</p>
-        </section>
-
-        <section class="pricing">
-            <div class="pricing-container">
-                <h2 class="section-title">Choose Your Payment Plan</h2>
-                
-                <div class="pricing-grid">
-                    <div class="price-card">
-                        <h3>Nigerian Students</h3>
-                        <div class="price">₦400,000</div>
-                        <p>One-Off Payment</p>
-                        <ul>
-                            <li>6 Months Complete Training</li>
-                            <li>3 Months Live Classes</li>
-                            <li>3 Months Internship</li>
-                            <li>Career Coaching</li>
-                            <li>Portfolio Development</li>
-                            <li>Job Placement Support</li>
-                            <li>Community Access</li>
-                        </ul>
-                        <button class="enroll-
+</html>
