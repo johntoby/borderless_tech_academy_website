@@ -769,25 +769,25 @@
         <section class="contact">
             <div class="contact-form">
                 <h2 style="text-align: center; margin-bottom: 2rem;">Enrollment Application</h2>
-                <form id="enrollmentForm">
+                <form id="enrollmentForm" action="https://docs.google.com/forms/d/e/1FAIpQLScFJo4k_z-XYv0TjMEmxea2DNC8TBIyt_3g7jKb_jdQZDX5cg/formResponse" method="POST" target="_blank">
                     <div class="form-group">
                         <label>Full Name *</label>
-                        <input type="text" required placeholder="Enter your full name">
+                        <input type="text" name="entry.2005620554" required placeholder="Enter your full name">
                     </div>
 
                     <div class="form-group">
                         <label>Email Address *</label>
-                        <input type="email" required placeholder="your.email@example.com">
+                        <input type="email" name="entry.1045781291" required placeholder="your.email@example.com">
                     </div>
 
                     <div class="form-group">
                         <label>Phone Number *</label>
-                        <input type="tel" required placeholder="+234 XXX XXX XXXX">
+                        <input type="tel" name="entry.1166974658" required placeholder="+234 XXX XXX XXXX">
                     </div>
 
                     <div class="form-group">
                         <label>Location *</label>
-                        <select required>
+                        <select name="entry.1065046570" required>
                             <option value="">Select your location</option>
                             <option value="nigeria">Nigeria</option>
                             <option value="ghana">Ghana</option>
@@ -802,7 +802,7 @@
 
                     <div class="form-group">
                         <label>Select Program *</label>
-                        <select required>
+                        <select name="entry.1813431922" required>
                             <option value="">Choose your program</option>
                             <option value="devops">Cloud & DevOps Engineering</option>
                             <option value="data">Data Science & AI</option>
@@ -813,7 +813,7 @@
 
                     <div class="form-group">
                         <label>Payment Plan *</label>
-                        <select required>
+                        <select name="entry.839337160" required>
                             <option value="">Select payment option</option>
                             <option value="full-ngn">Full Payment - ₦400,000 (Nigeria)</option>
                             <option value="monthly-ngn">Monthly - ₦150,000 × 3 (Nigeria)</option>
@@ -824,7 +824,7 @@
 
                     <div class="form-group">
                         <label>Current Experience Level *</label>
-                        <select required>
+                        <select name="entry.1774290794" required>
                             <option value="">Select your level</option>
                             <option value="beginner">Beginner - No tech experience</option>
                             <option value="some">Some Experience - Basic programming</option>
@@ -835,17 +835,17 @@
 
                     <div class="form-group">
                         <label>Why do you want to join BTA?</label>
-                        <textarea rows="4" placeholder="Tell us about your goals and why you're interested in this program..."></textarea>
+                        <textarea name="entry.942118340" rows="4" placeholder="Tell us about your goals and why you're interested in this program..."></textarea>
                     </div>
 
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" required style="width: auto; display: inline; margin-right: 10px;">
+                            <input type="checkbox" name="entry.1756778574" required style="width: auto; display: inline; margin-right: 10px;">
                             I agree to the terms and conditions and understand the program commitment
                         </label>
                     </div>
 
-                    <button type="submit" class="submit-btn">Submit Application →</button>
+                    <input type="submit" value="Submit Application →" class="submit-btn">
                 </form>
 
                 <div style="margin-top: 2rem; padding: 2rem; background: #f8f9fa; border-radius: 10px; text-align: center;">
@@ -956,9 +956,11 @@
             const form = document.getElementById('enrollmentForm');
             if (form) {
                 form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Thank you for your application! Our team will contact you within 24 hours via email. Check your inbox for next steps.\n\n🎉 Welcome to the Borderless Tech Academy family!');
-                    form.reset();
+                    // Allow form to submit to Google Forms
+                    setTimeout(function() {
+                        alert('Thank you for your application! Our team will contact you within 24 hours via email. Check your inbox for next steps.\n\n🎉 Welcome to the Borderless Tech Academy family!');
+                        form.reset();
+                    }, 1000);
                 });
             }
         });

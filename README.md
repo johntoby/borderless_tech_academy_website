@@ -32,13 +32,17 @@ A modern, responsive website for Borderless Tech Academy - an online learning pl
    cd borderless_tech_academy_website
    ```
 
-3. Open `bta_website.html` in your web browser
+3. Open `index.html` in your web browser
+
+## Live Site
+
+The website is live at: https://johntoby.github.io/borderlesstechacademy/
 
 ## Project Structure
 
 ```
 borderless_tech_academy_website/
-├── bta_website.html    # Main HTML file
+├── index.html         # Main HTML file
 └── README.md          # Project documentation
 ```
 
