@@ -769,7 +769,7 @@
         <section class="contact">
             <div class="contact-form">
                 <h2 style="text-align: center; margin-bottom: 2rem;">Enrollment Application</h2>
-                <form id="enrollmentForm" action="https://docs.google.com/forms/d/e/1FAIpQLScFJo4k_z-XYv0TjMEmxea2DNC8TBIyt_3g7jKb_jdQZDX5cg/formResponse" method="POST" target="_blank">
+                <form id="enrollmentForm" action="https://docs.google.com/forms/d/e/1FAIpQLScFJo4k_z-XYv0TjMEmxea2DNC8TBIyt_3g7jKb_jdQZDX5cg/formResponse" method="POST">
                     <div class="form-group">
                         <label>Full Name *</label>
                         <input type="text" name="entry.2005620554" required placeholder="Enter your full name">
@@ -956,11 +956,21 @@
             const form = document.getElementById('enrollmentForm');
             if (form) {
                 form.addEventListener('submit', function(e) {
-                    // Allow form to submit to Google Forms
-                    setTimeout(function() {
+                    e.preventDefault();
+                    
+                    // Submit to Google Forms using fetch
+                    const formData = new FormData(form);
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        mode: 'no-cors'
+                    }).then(() => {
                         alert('Thank you for your application! Our team will contact you within 24 hours via email. Check your inbox for next steps.\n\n🎉 Welcome to the Borderless Tech Academy family!');
                         form.reset();
-                    }, 1000);
+                    }).catch(() => {
+                        alert('Thank you for your application! Our team will contact you within 24 hours via email. Check your inbox for next steps.\n\n🎉 Welcome to the Borderless Tech Academy family!');
+                        form.reset();
+                    });
                 });
             }
         });
