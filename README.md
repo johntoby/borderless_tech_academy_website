@@ -11,7 +11,8 @@ A modern, responsive website for Borderless Tech Academy - an online learning pl
 - **Program Showcase**: Detailed information about available courses
 - **Pricing Plans**: Clear pricing structure with featured options
 - **Testimonials**: Student success stories and feedback
-- **Contact Integration**: Easy ways for prospective students to get in touch
+- **Form Integration**: Formspree-powered enrollment forms
+- **Analytics**: Google Analytics tracking for visitor insights
 
 ## Tech Stack
 
@@ -19,6 +20,8 @@ A modern, responsive website for Borderless Tech Academy - an online learning pl
 - CSS3 (with Flexbox and Grid)
 - Vanilla JavaScript
 - Responsive Design Principles
+- Formspree (Form handling)
+- Google Analytics (Tracking ID: G-RQ1M56GVE9)
 
 ## Getting Started
 
