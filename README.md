@@ -51,7 +51,7 @@ borderless_tech_academy_website/
 
 ## About Borderless Tech Academy
 
-Borderless Tech Academy is dedicated to providing world-class technology education that transcends geographical boundaries. Our mission is to empower individuals worldwide with the skills needed to thrive in the digital economy.
+Borderless Tech Academy is dedicated to providing world-class technology education that transcends geographical boundaries. Our mission is to empower individuals worldwide with the skills needed to thrive in the digital economy. Join the Academy today to begin your journey into Tech.
 
 ## Contributing
 
